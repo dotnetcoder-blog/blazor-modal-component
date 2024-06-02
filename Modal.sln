@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dnc.Common.Razor", "Dnc.Common.Razor\Dnc.Common.Razor.csproj", "{6DD0BEBA-DA93-45A4-AA33-F98D71F1C1F4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dnc.Modal.WebApp", "Dnc.Modal.WebApp\Dnc.Modal.WebApp.csproj", "{33904109-B5AB-40B4-B1E3-80F89EA1960A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DD0BEBA-DA93-45A4-AA33-F98D71F1C1F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD0BEBA-DA93-45A4-AA33-F98D71F1C1F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DD0BEBA-DA93-45A4-AA33-F98D71F1C1F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DD0BEBA-DA93-45A4-AA33-F98D71F1C1F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33904109-B5AB-40B4-B1E3-80F89EA1960A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33904109-B5AB-40B4-B1E3-80F89EA1960A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33904109-B5AB-40B4-B1E3-80F89EA1960A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33904109-B5AB-40B4-B1E3-80F89EA1960A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E999BDD-33C1-449E-98F0-6756F5574673}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,33 @@
+﻿@inherits DncModalComponent<TItem>
+@typeparam TItem
+
+@if(IsVisible){
+    @if(EditContext != null){
+        <EditForm EditContext="@EditContext" OnSubmit="@HandleSubmit">
+            <div class="modal fade show dnc-modal-background" id="DncModal" style="display: block;" aria-modal="true" role="dialog">
+                <div class="modal-dialog @ModalSize">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            @if (HeaderTemplate != null)
+                            {
+                                @HeaderTemplate(Item)
+                            }
+                            else
+                            {
+                                <h5 class="modal-title">Header</h5>
+                            }
+
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            @BodyTemplate(Item)
+                        </div>
+                        <div class="modal-footer">
+                            @FooterTemplate(Item)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </EditForm>
+    }
+}

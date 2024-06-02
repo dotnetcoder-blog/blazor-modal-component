@@ -1,0 +1,112 @@
+﻿@page "/"
+@inherits HomeComponent
+
+<PageTitle>Home</PageTitle>
+
+<div class="container mt-5 mx-auto">
+    <div class="row">
+        <div class="col pb-5">
+            <h3>Accounts</h3>
+            <table class="table">
+                <thead><tr><th>Name</th><th>Email address</th><th>Age</th><th>Expire date</th><th>#</th></tr></thead>
+                <tbody>
+                    @foreach (var account in Accounts)
+                    {
+                        <tr>
+                            <td>@account.Name</td>
+                            <td>@account.Email</td>
+                            <td>@account.Age</td>
+                            <td>@account.ExpireDate.ToShortDateString()</td>
+                            <td>
+                                <button class="btn btn-warning px-3" @onclick="()=>EditModal.Show(account)">
+                                    Edit Account
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <button class="btn btn-success mt-3 px-3" @onclick="()=>AddModal.Show(AccountModel)">
+                Create Account
+            </button>
+        </div>
+    </div>
+</div>
+
+<DncModal TItem="Account"
+          @ref="EditModal"
+          OnSubmit="EditModalSubmitted"
+          OnShow="EditModalDisplayed"
+          Size="Medium">
+
+    <HeaderTemplate>
+        <h5>Edit <b>@context.Name</b> Account</h5>
+    </HeaderTemplate>
+
+    <BodyTemplate>
+        <DataAnnotationsValidator />
+        <div class="mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <InputText class="form-control" id="Name" @bind-Value="context.Name" />
+            <ValidationMessage For="() => context.Name"></ValidationMessage>
+        </div>
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email address</label>
+            <InputText class="form-control" id="Email" @bind-Value="context.Email" placeholder="name@example.com" />
+            <ValidationMessage For="() => context.Email"></ValidationMessage>
+        </div>
+        <div class="mb-3">
+            <label for="Age" class="form-label">Age</label>
+            <InputNumber class="form-control" id="Age" @bind-Value="context.Age"/>
+            <ValidationMessage For="() => context.Age"></ValidationMessage>
+        </div>
+        <div class="mb-3">
+            <label for="ExpireDate" class="form-label">Expire Date</label>
+            <InputDate class="form-control" id="ExpireDate" @bind-Value="context.ExpireDate" />
+        </div>
+    </BodyTemplate>
+
+    <FooterTemplate>
+        <button class="btn btn-secondary px-3" @onclick="()=>EditModal.Close()">Cancel</button>
+        <button class="btn btn-warning  px-3" type="submit">Update the Account</button>
+    </FooterTemplate>
+</DncModal>
+
+<DncModal TItem="Account"
+          @ref="AddModal"
+          OnSubmit="AddModalSubmitted"
+          OnShow="AddModalDisplayed"
+          Size="Larg">
+
+    <HeaderTemplate>
+        <h5>Create a new Account</h5>
+    </HeaderTemplate>
+
+    <BodyTemplate>
+        <DataAnnotationsValidator />
+        <div class="mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <InputText class="form-control" id="Name" @bind-Value="AccountModel.Name" />
+            <ValidationMessage For="() => context.Name"></ValidationMessage>
+        </div>
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email address</label>
+            <InputText class="form-control" id="Email" @bind-Value="AccountModel.Email" placeholder="name@example.com" />
+            <ValidationMessage For="() => AccountModel.Email"></ValidationMessage>
+        </div>
+        <div class="mb-3">
+            <label for="Age" class="form-label">Age</label>
+            <InputNumber class="form-control" id="Age" @bind-Value="AccountModel.Age" />
+            <ValidationMessage For="() => AccountModel.Age"></ValidationMessage>
+        </div>
+        <div class="mb-3">
+            <label for="ExpireDate" class="form-label">Expire Date</label>
+            <InputDate class="form-control" id="ExpireDate" @bind-Value="AccountModel.ExpireDate" />
+        </div>
+    </BodyTemplate>
+
+    <FooterTemplate>
+        <button class="btn btn-secondary px-3" @onclick="()=>AddModal.Close()">Cancel</button>
+        <button class="btn btn-success px-3" type="submit">Create Account</button>
+    </FooterTemplate>
+</DncModal>
